@@ -25,7 +25,7 @@ function TableOpciones() {
               <tr key={e.id}>
                 <td>{e.pregunta}</td>
                 <td>{e.opcion}</td>
-                <td>{e.resultado === "t" ? "verdadero" : "incorrecto"}</td>
+                <td>{e.resultado ? "verdadero" : "incorrecto"}</td>
               </tr>
             );
           })}

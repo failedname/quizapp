@@ -6,6 +6,7 @@ function PreguntasForm() {
   const [categorias, setCategorias] = useState([]);
   const [pregunta, setPregunta] = useState("");
   const [categoria, setCategoria] = useState(0);
+
   useEffect(() => {
     fetch(`${hostApi}/categoria`)
       .then((res) => res.json())
@@ -29,13 +30,11 @@ function PreguntasForm() {
       body: JSON.stringify({ nombre: pregunta, categoria }),
     };
     if (pregunta.length > 0) {
-      console.log("iniciando");
       fetch(`${hostApi}/pregunta`, options)
         .then((res) => res.json())
         .then((data) => {
           setPregunta("");
-          setCategoria(0);
-          console.log(data);
+          setCategoria("");
         });
     } else {
       console.log("no iniciando");
@@ -63,7 +62,7 @@ function PreguntasForm() {
               <select
                 onChange={handleChangeCategoria}
                 className='ui fluid dropdown'>
-                <option value='0'>Seleccione una categoria</option>
+                <option value={categoria}>Seleccione una categoria</option>
                 {categorias.map((e, index) => {
                   return (
                     <option key={e.id} value={e.id}>
