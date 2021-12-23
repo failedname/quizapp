@@ -28,31 +28,27 @@ function App() {
   };
   const handleRetiro = () => {
     setGanador(true);
+    saveGanador();
   };
   const saveGanador = () => {
-    console.log(ganador);
     const options = {
       method: "POST",
-      mode: "no-cors",
+
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json;charset=utf-8",
       },
       body: JSON.stringify({ jugador, score }),
     };
-    if (ganador) {
-      console.log("iniciando");
-      fetch(`${hostApi}/ganador`, options)
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-        });
-    } else {
-      console.log("no iniciando");
-    }
+
+    fetch(`${hostApi}/ganador`, options)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
   function handleSiguienteCategoria() {
     const siguienteCategoria = actualCategoria + 1;
-    if (siguienteCategoria <= categorias.length) {
+    if (siguienteCategoria < categorias.length) {
       setActualCategoria(siguienteCategoria);
       fetch(`${hostApi}/pregunta/${categorias[actualCategoria].id}`)
         .then((res) => res.json())
@@ -64,6 +60,7 @@ function App() {
         });
     } else {
       setGanador(true);
+      saveGanador();
     }
   }
 

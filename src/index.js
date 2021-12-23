@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Categoria from "./components/categorias";
 import PreguntaForm from "./components/PreguntasForm";
 import Opciones from "./components/Opciones";
+import Ganadores from "./components/Ganadores";
 import "./semantic.min.css";
 
 import App from "./App";
@@ -17,6 +18,7 @@ ReactDOM.render(
         <Route path='categoria' element={<Categoria />} />
         <Route path='pregunta' element={<PreguntaForm />} />
         <Route path='opciones' element={<Opciones />}></Route>
+        <Route path='ganadores' element={<Ganadores></Ganadores>}></Route>
       </Routes>
     </Router>
   </React.StrictMode>,

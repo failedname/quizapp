@@ -16,6 +16,9 @@ function menu() {
         <Link to='/opciones' className='item'>
           Opciones
         </Link>
+        <Link to='/ganadores' className='item'>
+          Ganadores
+        </Link>
 
         <div className='right menu'>
           <a className='ui item'></a>
