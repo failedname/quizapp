@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import hostApi from "././config/host";
 import Preguntas from "./components/preguntas";
 import Menu from "./components/menu";
-import { Link, Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [ganador, setGanador] = useState(false);
